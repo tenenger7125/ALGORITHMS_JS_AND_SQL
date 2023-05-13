@@ -1,3 +1,3 @@
 function solution(age) {
-    return [...age.toString()].map(n => 'abcdefghij'[n]).join('');
+    return age.toString().replace(/./g, match => 'abcdefghij'[match]);
 }
