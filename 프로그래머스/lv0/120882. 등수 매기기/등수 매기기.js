@@ -1,5 +1,6 @@
 function solution(score) {
-    const sumScore = score.map(([english, math]) => (english + math)).sort((a,b) => b-a);
-    
-    return score.map(([english, math]) => sumScore.indexOf(english + math) + 1)
+    return score.map(e1 => {
+        return score.filter(e2 => (e1[0] + e1[1]) / 2 < (e2[0] + e2[1]) / 2).length + 1
+    })
 }
+
