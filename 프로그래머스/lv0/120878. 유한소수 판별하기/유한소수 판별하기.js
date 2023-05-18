@@ -3,18 +3,13 @@ function getGCD (num1, num2) {
 }
 
 function isFinite (n) {
-    for (let i=2; i<=n; i++) {
-        if (n % i === 0) {
-            if (i !== 2 && i !== 5) return false;
-            
-            while (n % i === 0) {
-                n /= i
-            }
-        }
+    while (n % 2 === 0) {
+        n /= 2;
     }
-    
-    return true
-    
+    while (n % 5 === 0) {
+        n /= 5;
+    }
+    return n === 1
 }
 
 function solution(a, b) {
