@@ -1,14 +1,11 @@
 function solution(lines) {
-    const arr = Array.from({length: 201}, () => 0)
+    const arr = Array(201).fill(0)
     
-    return lines.reduce((acc, [start, end]) => {
-        let count = 0;
-        
-        for (let i=start + 100; i<end + 100; i++) {
-            count += +(arr[i] !== 0);
-            arr[i] = (arr[i] === 0 ? 1 : 2);
+    lines.forEach(([s, e]) => {
+        for (let i=s; i<e; i++) {
+            arr[i + 100]++;
         }
-        
-        return arr.reduce((acc, cur) => acc + +(cur === 2), 0)
-    }, 0)
+    })
+    
+    return arr.reduce((acc, cur) => acc + +(cur > 1), 0)
 }
