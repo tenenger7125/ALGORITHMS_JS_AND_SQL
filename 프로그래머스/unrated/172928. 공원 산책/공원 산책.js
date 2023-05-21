@@ -6,10 +6,7 @@ function solution(park, routes) {
         return acc.length === 0 ? [...row].reduce((acc, cur, x_idx) => cur === 'S' ? [y_idx, x_idx] : acc, []) : acc
     }, [])
     
-    console.log('robot: ', [robot_y, robot_x])
-    
     return routes.reduce(([y, x], cur) => {
-        console.log('top: ', [y, x])
         const [op, n] = cur.split(" ");
         const [my, mx] = [y + dy[operation[op]] * n, x + dx[operation[op]] * n]
         
