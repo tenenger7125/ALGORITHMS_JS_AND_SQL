@@ -5,26 +5,25 @@ const [n, ...string] = fs
   .trim()
   .split("\n");
 
-let answer = n;
+function check(str) {
+  const set = new Set(str[0]);
+
+  for (let i = 0; i < str.length - 1; i++) {
+    if (str[i] !== str[i + 1]) {
+      if (set.has(str[i + 1])) return false;
+
+      set.add(str[i + 1]);
+    }
+  }
+
+  return true;
+}
+
+let answer = 0;
 
 for (let i = 0; i < n; i++) {
-  const map = new Map();
   const str = string[i];
-
-  for (let j = 0; j < str.length; j++) {
-    const cur = str[j];
-
-    if (map.has(cur)) {
-      answer--;
-      break;
-    }
-
-    while (cur === str[j]) {
-      map.set(str[j], 1);
-      j++;
-    }
-    j--;
-  }
+  if (check(str)) answer++;
 }
 
 console.log(answer);
