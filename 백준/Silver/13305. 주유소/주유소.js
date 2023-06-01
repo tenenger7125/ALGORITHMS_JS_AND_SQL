@@ -13,4 +13,6 @@ for (let i = 1; i < n; i++) {
   dp[i] = Math.min(dp[i - 1], dp[i]);
 }
 
-console.log(distances.reduce((acc, cur, idx) => acc + cur * dp[idx], 0));
+console.log(
+  BigInt(distances.reduce((acc, cur, idx) => acc + cur * dp[idx], 0)).toString()
+);
