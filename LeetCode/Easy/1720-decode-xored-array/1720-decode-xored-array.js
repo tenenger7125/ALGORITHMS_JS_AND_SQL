@@ -4,14 +4,11 @@
  * @return {number[]}
  */
 var decode = function(encoded, first) {
-    const answer = [first];
-    let left = first;
+    const origin = [first];
     
     for (let i=0; i<encoded.length; i++) {
-        const origin = left ^ encoded[i];
-        answer.push(origin)
-        left = origin
+        origin.push(origin[i] ^ encoded[i])
     }
     
-    return answer;
+    return origin;
 };
