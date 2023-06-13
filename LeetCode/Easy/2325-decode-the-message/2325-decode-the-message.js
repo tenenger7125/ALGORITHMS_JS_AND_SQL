@@ -9,6 +9,6 @@ var decodeMessage = function(key, message) {
         
         return [code, schema]
     }, [97, {" ": " "}])
-    console.log(schema)
+    
     return message.replace(/./g, match => schema[match])
 };
