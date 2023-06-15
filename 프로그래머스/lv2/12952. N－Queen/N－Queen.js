@@ -16,7 +16,7 @@ function solution(n) {
         }
     }
     
-    // O(1)
+    // O(n)
     for (let i=0; i<n; i++) {
         dfs(0, i, [])
     }
