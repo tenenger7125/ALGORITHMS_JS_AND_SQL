@@ -3,13 +3,9 @@
  * @return {number}
  */
 var sumOddLengthSubarrays = function(arr) {
-    let answer = 0;
-    
-    for (let i=1; i<=arr.length; i+=2) {
-        for (let j=0; j<arr.length && j+i<=arr.length; j++ ){
-            answer += arr.slice(j, j + i).reduce((acc, cur) => acc + cur, 0)
-        }
-    }
-    
-    return answer;
+    // i saw solution O(n) better then my solution O(n^3);
+    const n = arr.length;
+    return arr.reduce((acc, cur, idx) => {
+        return acc + Math.ceil(((idx * (n - idx)) + (n - idx)) / 2) * cur
+    }, 0)    
 };
