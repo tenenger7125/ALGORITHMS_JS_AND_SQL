@@ -11,7 +11,7 @@ var countPoints = function(rings) {
         acc[index][color]++;
         return acc;
     }, {})
-    console.log(obj)
+
     return Object.values(obj).reduce((acc, cur) => {
         const {R,G,B} = cur;
         return acc + Math.min(R,G,B,1)
