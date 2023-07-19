@@ -4,5 +4,5 @@
  * @return {string[]}
  */
 var sortPeople = function(names, heights) {
-    return heights.map((height, index) => [height, index]).sort((a,b) => b[0]-a[0]).map(([height, index]) => names[index])
+    return heights.map((height, index) => [names[index], height]).sort((a,b) => b[1]-a[1]).map(([name]) => name);
 };
