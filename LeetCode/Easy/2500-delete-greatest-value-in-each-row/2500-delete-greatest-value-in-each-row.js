@@ -3,17 +3,15 @@
  * @return {number}
  */
 var deleteGreatestValue = function(grid) {
+    grid = grid.map(row => row.sort((a,b)=>a-b));
     let answer = 0;
     
     while (grid[0].length) {
         let entireMax = 0;
         
-        grid = grid.map(row => {
-            const rowMax = Math.max(...row);
-            const rowMaxIdx = row.indexOf(rowMax);
-            
+        grid.forEach(row => {
+            const rowMax = row.pop();
             entireMax = Math.max(entireMax, rowMax)
-            return [...row.slice(0, rowMaxIdx), ...row.slice(rowMaxIdx+1)]
         })
 
         answer += entireMax;
