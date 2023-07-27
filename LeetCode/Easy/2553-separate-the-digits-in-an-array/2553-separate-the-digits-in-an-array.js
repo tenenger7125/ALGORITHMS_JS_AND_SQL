@@ -3,5 +3,5 @@
  * @return {number[]}
  */
 var separateDigits = function(nums) {
-    return nums.map(num => num.toString().split("")).flat()
+    return nums.join("").split("").map(Number)
 };
