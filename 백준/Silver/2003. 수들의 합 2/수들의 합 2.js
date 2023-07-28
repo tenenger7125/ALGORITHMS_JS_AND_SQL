@@ -9,13 +9,16 @@ const input = (() => {
 
 const [n, m] = input().split(" ").map(Number);
 const numbers = input().split(" ").map(Number);
-
-let [left, right] = [0, 0];
+const dy = Array(n + 1).fill(0);
+let [left, right] = [0, 1];
 let count = 0;
 
-while (right < n && left < n) {
-  const sum = numbers.slice(left, right + 1).reduce((acc, cur) => acc + cur, 0);
+for (let i = 1; i <= n; i++) {
+  dy[i] = dy[i - 1] + numbers[i - 1];
+}
 
+while (right <= n) {
+  const sum = dy[right] - dy[left];
   if (sum === m) {
     count++;
     right++;
