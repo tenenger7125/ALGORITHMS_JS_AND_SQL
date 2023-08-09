@@ -3,12 +3,12 @@
  * @return {string}
  */
 var finalString = function(s) {
-    let str = '';
+    const arr = [];
     
     for (const char of s) {
-        if (char === 'i') str = str.split("").reverse().join("")
-        else str += char;
+        if (char === 'i') arr.reverse();
+        else arr.push(char);
     }
     
-    return str
+    return arr.join("")
 };
