@@ -6,10 +6,12 @@ var sumCounts = function(nums) {
     let sum = 0;
     
     for (let i=0; i<nums.length; i++) {
+        const map = new Map();
+        
         for (let j=i; j<nums.length; j++) {
-            const distinct = (new Set(nums.slice(i, j+1))).size;
+            if (!map.has(nums[j])) map.set(nums[j], 0);
             
-            sum += distinct ** 2;
+            sum += map.size ** 2
         }
     }
     
