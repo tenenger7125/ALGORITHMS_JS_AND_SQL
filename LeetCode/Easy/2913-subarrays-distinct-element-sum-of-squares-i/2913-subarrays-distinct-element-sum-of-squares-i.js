@@ -3,16 +3,15 @@
  * @return {number}
  */
 var sumCounts = function(nums) {
-    const result = {};
+    let sum = 0;
     
     for (let i=0; i<nums.length; i++) {
         for (let j=i; j<nums.length; j++) {
             const distinct = (new Set(nums.slice(i, j+1))).size;
             
-            if (!result[distinct]) result[distinct] = 0;
-            result[distinct]++;
+            sum += distinct ** 2;
         }
     }
     
-    return Object.entries(result).reduce((acc, [distinct, count]) => acc + (distinct ** 2) * count, 0);
+    return sum;
 };
