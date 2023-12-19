@@ -1,9 +1,5 @@
 /* Write your PL/SQL query statement below */
 select customer_id
-from (
-    select *
-    from customer
-    group by customer_id, product_key
-)
+from customer
 group by customer_id
-having count(*) = (select count(*) from product)
+having count(distinct product_key) = (select count(*) from product)
