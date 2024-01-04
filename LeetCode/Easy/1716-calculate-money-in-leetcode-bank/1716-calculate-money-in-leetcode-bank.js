@@ -3,15 +3,12 @@
  * @return {number}
  */
 var totalMoney = function(n) {
-    let mondayMoney = 1;
     let results = 0;
     
-    while (n > 0) {
-        for (let i=0; i<(n > 7 ? 7 : n); i++) {
-            results += mondayMoney + i
-        }
-        n -= 7;
-        mondayMoney++;
+    for (let i=0; i<n; i++) {
+        const round = 1 + Math.floor(i / 7);
+        
+        results += round + (i % 7)
     }
 
     return results
