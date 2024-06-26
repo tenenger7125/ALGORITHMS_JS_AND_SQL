@@ -9,7 +9,6 @@ function solution(k, ranges) {
         dy[i] = dy[i-1] % 2 === 0 ? dy[i-1] / 2 : dy[i-1] * 3 + 1;
         i++;
     }
-    console.log(dy)
     
     const widths = Array.from({length: 1}).fill(0);
     
@@ -19,15 +18,9 @@ function solution(k, ranges) {
     
     for (const range of ranges) {
         const [a, b] = [range[0], widths.length - 1 + range[1]];
-        
-        if (a > widths.length - 1 || b < 0 || a > b) {
-            answer.push(-1)
-            continue
-        }
-        
-        const num = widths[b] - widths[a]
+        const num = a > widths.length - 1 || b < 0 || a > b ? -1 : widths[b] - widths[a]
 
-        answer.push(num < 0 ? -1 : num);
+        answer.push(num);
     }
     
     return answer;
