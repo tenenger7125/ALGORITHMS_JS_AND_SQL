@@ -49,13 +49,11 @@ class MinHeap {
     
     pop () {
         if (this.size() === 0) return null;
+        if (this.size() === 1) return this.heap.pop();
         
         const min = this.heap[1];
-        const last = this.heap.pop();
 
-        if (this.size() === 0) return min;
-        
-        this.heap[1] = last;
+        this.heap[1] = this.heap.pop();
         
         let parent = 1;
         let left = 2;
